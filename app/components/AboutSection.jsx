@@ -3,6 +3,22 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
+const TAB_Data = [
+  {
+    title: "Skills",
+    id: "skills",
+    content: (
+      <ul>
+        <li>Node.js</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>React native</li>
+        <li>Java</li>
+      </ul>
+    ),
+  },
+];
+
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
