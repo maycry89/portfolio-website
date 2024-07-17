@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
@@ -17,6 +17,30 @@ const TAB_Data = [
       </ul>
     ),
   },
+  {
+    title: "Education",
+    id: "education",
+    content: (
+      <ul>
+        <li>Media Systems Absolventin</li>
+        <li>JavaScript</li>
+        <li>React</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Certifications",
+    id: "certifications",
+    content: (
+      <ul>
+        <li>Hervorragender Allrounder</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>React native</li>
+       
+      </ul>
+    ),
+  }
 ];
 
 const AboutSection = () => {
@@ -34,9 +58,9 @@ const AboutSection = () => {
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         {/* <div className="mx-auto"> */}
         <div>
-          <Image src="/images/Ddesk.jpg" width={500} height={500}></Image>
+          <Image src="/images/Ddesk.jpg" alt="Desk" width={500} height={500}></Image>
         </div>
-        <div>
+        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4 mt-4">About Me</h2>
           <p className="text-base lg:text-lg">
             I am Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -60,11 +84,12 @@ const AboutSection = () => {
             ></TabButton>
 
             <TabButton
-              active={tab === "experience"}
-              selectTab={() => handleTabChange("experience")}
-              tabName={"Experience"}
+              active={tab === "certifications"}
+              selectTab={() => handleTabChange("certifications")}
+              tabName={"Certifications"}
             ></TabButton>
           </div>
+          <div className="mt-8">/{TAB_Data.find((t) => t.id === tab).content}</div>
         </div>
       </div>
     </section>
