@@ -1,4 +1,4 @@
- "use client";
+"use client";
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
@@ -8,7 +8,7 @@ const TAB_Data = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul>
+      <ul className="list-disc pl-2">
         <li>Node.js</li>
         <li>JavaScript</li>
         <li>React</li>
@@ -21,7 +21,7 @@ const TAB_Data = [
     title: "Education",
     id: "education",
     content: (
-      <ul>
+      <ul className="list-disc pl-2">
         <li>Media Systems Absolventin</li>
         <li>JavaScript</li>
         <li>React</li>
@@ -32,15 +32,14 @@ const TAB_Data = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul>
+      <ul className="list-disc pl-2">
         <li>Hervorragender Allrounder</li>
         <li>JavaScript</li>
         <li>React</li>
         <li>React native</li>
-       
       </ul>
     ),
-  }
+  },
 ];
 
 const AboutSection = () => {
@@ -55,10 +54,15 @@ const AboutSection = () => {
   return (
     <section className="text-white">
       {/* gap-8 = 32px*/}
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+      <div className="md:grid md:grid-cols-2 gap-8 items-start py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         {/* <div className="mx-auto"> */}
-        <div>
-          <Image src="/images/Ddesk.jpg" alt="Desk" width={500} height={500}></Image>
+        <div className="md:mt-12 xl:mt-0">
+          <Image
+            src="/images/Ddesk.jpg"
+            alt="Desk"
+            width={500}
+            height={500}
+          ></Image>
         </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4 mt-4">About Me</h2>
@@ -70,7 +74,7 @@ const AboutSection = () => {
             sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
             consetetur sadipscing elitr, sed diam nonumy eirmod tempor invi
           </p>
-          <div className="flex flex-row mt-8">
+          <div className="flex flex-row justify-start mt-8">
             <TabButton
               active={tab === "skills"}
               selectTab={() => handleTabChange("skills")}
@@ -89,7 +93,9 @@ const AboutSection = () => {
               tabName={"Certifications"}
             ></TabButton>
           </div>
-          <div className="mt-8">/{TAB_Data.find((t) => t.id === tab).content}</div>
+          <div className="mt-8">
+            {TAB_Data.find((t) => t.id === tab).content}
+          </div>
         </div>
       </div>
     </section>
